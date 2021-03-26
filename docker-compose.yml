@@ -1,0 +1,32 @@
+version: "3.5"
+
+services:
+  idgen:
+    build: .
+    container_name: idgen
+    environment:
+      RQLITE__URI: "http://rqlite:4001"
+    ports:
+      - 38080:8080
+    restart: always
+    depends_on:
+      - rqlite
+
+  rqlite:
+    image: rqlite/rqlite:5.10.2
+    container_name: rqlite
+    ports:
+      - 4001
+      - 4002
+    volumes:
+      - ./data/rqlite:/rqlite/file/data
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "10"
+        max-size: 20m
+
+volumes:
+  data01:
+    driver: local
