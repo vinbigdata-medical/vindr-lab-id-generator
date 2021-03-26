@@ -2,7 +2,7 @@
 
 # VinDr Lab / IDGen
 
-VinLab IDGen (or ID Generator) is a part of the VinLab project.
+VinLab IDGen (or ID Generator) is a part of the VinLab project. Like the name it is, this service generates a new integer value which based on the key as string. 
 
 ## What does this project do?
 
